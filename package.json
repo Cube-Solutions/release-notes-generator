@@ -1,10 +1,10 @@
 {
-  "name": "@semantic-release/release-notes-generator",
+  "name": "release-notes-generator-extension",
   "description": "semantic-release plugin to generate changelog content with conventional-changelog",
   "version": "0.0.0-development",
   "author": "Pierre Vanduynslager (https://twitter.com/@pvdlg_)",
   "bugs": {
-    "url": "https://github.com/semantic-release/release-notes-generator/issues"
+    "url": "https://github.com/Cube-Solutions/release-notes-generator/issues"
   },
   "contributors": [
     "Stephan Bönnemann <stephan@boennemann.me> (http://boennemann.me)",
@@ -42,7 +42,8 @@
     "sinon": "21.0.0",
     "stream-buffers": "3.0.3",
     "tempy": "3.1.0",
-    "testdouble": "3.20.2"
+    "testdouble": "3.20.2",
+    "release-notes-generator-jira-linked-ticket-extension": "github:Cube-Solutions/release-notes-generator-jira-linked-ticket-extension#update"
   },
   "engines": {
     "node": ">=20.8.1"
@@ -52,7 +53,7 @@
     "wrappers",
     "index.js"
   ],
-  "homepage": "https://github.com/semantic-release/release-notes-generator#readme",
+  "homepage": "https://github.com/Cube-Solutions/release-notes-generator#readme",
   "keywords": [
     "changelog",
     "conventional-changelog",
@@ -99,7 +100,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/semantic-release/release-notes-generator.git"
+    "url": "https://github.com/Cube-Solutions/release-notes-generator.git"
   },
   "scripts": {
     "lint:prettier": "prettier --check \"{lib,test}/**/*.{js,json,ts}\" \"*.{md,json,js}\" \".github/**/*.yml\"",
