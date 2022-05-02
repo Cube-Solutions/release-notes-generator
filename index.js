@@ -9,6 +9,7 @@ const readPkgUp = require('read-pkg-up');
 const debug = require('debug')('semantic-release:release-notes-generator');
 const loadChangelogConfig = require('./lib/load-changelog-config');
 const HOSTS_CONFIG = require('./lib/hosts-config');
+const importFrom = require('import-from');
 
 /**
  * Generate the changelog for all the commits in `options.commits`.
@@ -40,7 +41,7 @@ async function generateNotes(pluginConfig, context) {
   const [, owner, repository] = /^\/(?<owner>[^/]+)?\/?(?<repository>.+)?$/.exec(pathname);
 
   const {issue, commit, referenceActions, issuePrefixes} =
-    find(HOSTS_CONFIG, (conf) => conf.hostname === hostname) || HOSTS_CONFIG.default;
+  find(HOSTS_CONFIG, (conf) => conf.hostname === hostname) || HOSTS_CONFIG.default;
   const parsedCommits = filter(
     commits
       .filter(({message, hash}) => {
@@ -74,6 +75,17 @@ async function generateNotes(pluginConfig, context) {
     },
     {host: hostConfig, linkCompare, linkReferences, commit: commitConfig, issue: issueConfig}
   );
+
+
+  const {extensions} = pluginConfig;
+  if (extensions) {
+    for (let extensionConfig of extensions) {
+      debug('Applying extension: %s', extensionConfig.name);
+
+      const extension = importFrom.silent(__dirname, extensionConfig.name) || importFrom(cwd, extensionConfig.name);
+      await extension(parsedCommits, extensionConfig.config, pluginConfig, context)
+    }
+  }
 
   debug('version: %o', changelogContext.version);
   debug('host: %o', changelogContext.hostname);

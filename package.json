@@ -1,10 +1,10 @@
 {
-  "name": "@semantic-release/release-notes-generator",
+  "name": "release-notes-generator-extension",
   "description": "semantic-release plugin to generate changelog content with conventional-changelog",
   "version": "0.0.0-development",
   "author": "Pierre Vanduynslager (https://twitter.com/@pvdlg_)",
   "bugs": {
-    "url": "https://github.com/semantic-release/release-notes-generator/issues"
+    "url": "https://github.com/Cube-Solutions/release-notes-generator/issues"
   },
   "contributors": [
     "Stephan Bönnemann <stephan@boennemann.me> (http://boennemann.me)",
@@ -19,13 +19,12 @@
     "get-stream": "^6.0.0",
     "import-from": "^4.0.0",
     "into-stream": "^6.0.0",
-    "lodash": "^4.17.4",
-    "read-pkg-up": "^7.0.0"
+    "lodash": "^4.17.4"
   },
   "devDependencies": {
     "ava": "4.2.0",
     "conventional-changelog-atom": "2.0.8",
-    "conventional-changelog-conventionalcommits": "4.6.3",
+    "conventional-changelog-conventionalcommits": "^4.6.3",
     "conventional-changelog-ember": "2.0.9",
     "conventional-changelog-eslint": "3.0.9",
     "conventional-changelog-express": "2.0.6",
@@ -34,7 +33,8 @@
     "fs-extra": "10.1.0",
     "nyc": "15.1.0",
     "proxyquire": "2.1.3",
-    "semantic-release": "19.0.2",
+    "release-notes-generator-jira-linked-ticket-extension": "github:Cube-Solutions/release-notes-generator-jira-linked-ticket-extension#main",
+    "semantic-release": "^19.0.2",
     "sinon": "13.0.2",
     "tempy": "1.0.1",
     "xo": "0.32.1"
@@ -46,7 +46,7 @@
     "lib",
     "index.js"
   ],
-  "homepage": "https://github.com/semantic-release/release-notes-generator#readme",
+  "homepage": "https://github.com/Cube-Solutions/release-notes-generator#readme",
   "keywords": [
     "changelog",
     "conventional-changelog",
@@ -83,7 +83,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/semantic-release/release-notes-generator.git"
+    "url": "https://github.com/Cube-Solutions/release-notes-generator.git"
   },
   "scripts": {
     "lint": "xo",
